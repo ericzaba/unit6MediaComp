@@ -11,6 +11,13 @@ public class IntArrayWorker
     matrix = theMatrix;
   }
   
+  
+  /**
+   * Method getCount
+   *
+   * @return The return value
+   */
+  
   /**
    * Method to return the total 
    * @return the total of the values in the array
