@@ -151,7 +151,56 @@ public class Picture extends SimplePicture
             }
         } 
     }
+    public void cropAndCopy(Picture sourcePicture, int startSourceRow, int endSourceRow, int startSourceCol, int endSourceCol, int startDestRow, int startDestCol){
+        
+        Pixel[][] picture1 = sourcePicture.getPixels2D();
+        Pixel[][] picture2 = this.getPixels2D();
 
+        for (int i = startSourceCol; i<endSourceCol; i++){
+            for (int j = startSourceRow; j<endSourceRow; j++){
+                picture1[1][2] = picture1[i][j];
+                
+            
+            }
+        
+        }
+        Pixel[][] picturedestination = null;
+        for (int i = startDestCol; i<picture2.length; i++){
+            for (int j = 0; j<startDestRow; j++){
+                picturedestination = picture2[i][j].setColor(picture2.getColor());
+            
+            }
+        }
+            
+    }
+    public void copy(Picture fromPic, 
+    int startRow, int startCol)
+
+    {
+
+        Pixel fromPixel = null;
+        Pixel toPixel = null;
+        Pixel[][] toPixels = this.getPixels2D();
+        Pixel[][] fromPixels = fromPic.getPixels2D();
+        for (int fromRow = 0, toRow = startRow; 
+        fromRow < fromPixels.length &&
+        toRow < toPixels.length;
+        fromRow++, toRow++)
+        {
+            for (int fromCol = 0, toCol = startCol; 
+            fromCol < fromPixels[0].length &&
+            toCol < toPixels[0].length; 
+            fromCol++, toCol++)
+            {
+                fromPixel = fromPixels[fromRow][fromCol];
+                toPixel = toPixels[toRow][toCol];
+                toPixel.setColor(fromPixel.getColor());
+            }
+        } 
+    }
+    
+    
+    
     public void mirrorHorizontal()
     {
         Pixel[][] pixels = this.getPixels2D();
@@ -217,29 +266,7 @@ public class Picture extends SimplePicture
      * @param startRow the start row to copy to
      * @param startCol the start col to copy to
      */
-    public void copy(Picture fromPic, 
-    int startRow, int startCol)
-    {
-        Pixel fromPixel = null;
-        Pixel toPixel = null;
-        Pixel[][] toPixels = this.getPixels2D();
-        Pixel[][] fromPixels = fromPic.getPixels2D();
-        for (int fromRow = 0, toRow = startRow; 
-        fromRow < fromPixels.length &&
-        toRow < toPixels.length; 
-        fromRow++, toRow++)
-        {
-            for (int fromCol = 0, toCol = startCol; 
-            fromCol < fromPixels[0].length &&
-            toCol < toPixels[0].length;  
-            fromCol++, toCol++)
-            {
-                fromPixel = fromPixels[fromRow][fromCol];
-                toPixel = toPixels[toRow][toCol];
-                toPixel.setColor(fromPixel.getColor());
-            }
-        }   
-    }
+    
 
     /** Method to show large changes in color 
      * @param edgeDist the distance for finding edges
