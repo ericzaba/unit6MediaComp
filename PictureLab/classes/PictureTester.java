@@ -51,6 +51,13 @@ public class PictureTester
     canvas.explore();
   }
   
+  public static void testMirrorVerticalRightToLeft(){
+    Picture beach = new Picture("beach.jpg");
+    beach.mirrorVerticalRightToLeft();
+    beach.explore();
+    
+    }
+  
   /** Method to test edgeDetection */
   public static void testEdgeDetection()
   {
@@ -58,7 +65,12 @@ public class PictureTester
     swan.edgeDetection(10);
     swan.explore();
   }
-  
+  public static void testMirrorHorizontalBottomToTop(){
+    Picture beach = new Picture("beach.jpg");
+    beach.mirrorHorizontalBottomToTop();
+    beach.explore();
+    
+    }
   /** Main method for testing.  Every class can have a main
     * method in Java */
   public static void main(String[] args)
