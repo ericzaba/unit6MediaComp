@@ -167,7 +167,7 @@ public class Picture extends SimplePicture
         Pixel[][] picturedestination = null;
         for (int i = startDestCol; i<picture2.length; i++){
             for (int j = 0; j<startDestRow; j++){
-                picturedestination = picture2[i][j].setColor(picture2.getColor());
+               //picturedestination = picture2[i][j].setColor(picture2.getColor());
             
             }
         }
